@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Express24FrontEnd';
+  patients = true;
+  consultations = false;
+
+  constructor(){
+    this.patients = true;
+  }
+
+  setDiv = function(name: string){
+    alert('in setDiv');
+    name = "true";
+  }
 }
