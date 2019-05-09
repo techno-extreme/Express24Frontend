@@ -9,6 +9,7 @@
 	<title>Express 24 | Dashboard</title>
 	<!-- Favicon -->
 	<link rel="icon" href="./../assets/images/express24.jpg" />
+	<script src="dashboard.js"></script>
 	<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 </head>
 
@@ -29,20 +30,54 @@
 		</div>
 		<div id="patients" *ngIf="patients" class="utilities">
 			<div id="welcome">
-				<div class="title">
-					<h2>Fusce ultrices fringilla metus</h2>
-					<span class="byline">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna
-						congue</span>
+				<div class="container">
+					<h1>HTML5 Editable Table</h1>
+					<p>Through the powers of <strong>contenteditable</strong> and some simple jQuery you can easily
+						create a custom editable table. No need for a robust JavaScript library anymore these days.</p>
+
+					<ul>
+						<li>An editable table that exports a hash array. Dynamically compiles rows from headers</li>
+						<li>Simple / powerful features such as add row, remove row, move row up/down.</li>
+					</ul>
+
+					<div id="table" class="table-editable">
+						<span class="table-add glyphicon glyphicon-plus"></span>
+						<table class="table">
+							<tr>
+								<th>Name</th>
+								<th>Value</th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td contenteditable="true">Stir Fry</td>
+								<td contenteditable="true">stir-fry</td>
+								<td>
+									<span class="table-remove glyphicon glyphicon-remove"></span>
+								</td>
+								<td>
+									<span class="table-up glyphicon glyphicon-arrow-up"></span>
+									<span class="table-down glyphicon glyphicon-arrow-down"></span>
+								</td>
+							</tr>
+							<!-- This is our clonable table line -->
+							<tr class="hide">
+								<td contenteditable="true">Untitled</td>
+								<td contenteditable="true">undefined</td>
+								<td>
+									<span class="table-remove glyphicon glyphicon-remove"></span>
+								</td>
+								<td>
+									<span class="table-up glyphicon glyphicon-arrow-up"></span>
+									<span class="table-down glyphicon glyphicon-arrow-down"></span>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<button id="export-btn" class="btn btn-primary">Export Data</button>
+					<p id="export"></p>
 				</div>
-				<p>This is <strong>Privy</strong>, a free, fully standards-compliant CSS template designed by <a
-						href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a
-						href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a
-						href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty
-					much free to do whatever you want with it (even use it commercially) provided you give us credit for
-					it. Have fun :) </p>
-				<ul class="actions">
-					<li><a href="#" class="button">Etiam posuere</a></li>
-				</ul>
 			</div>
 			<div id="copyright">
 				<span>&copy; Untitled. All rights reserved. | Photos by <a
