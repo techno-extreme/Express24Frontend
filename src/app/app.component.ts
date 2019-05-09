@@ -14,8 +14,14 @@ export class AppComponent {
     this.patients = true;
   }
 
-  setDiv = function(name: string){
-    alert('in setDiv');
-    name = "true";
+  setDiv = function(tab: string){
+    if(tab == 'consultations'){
+      this.consultations = true;
+      this.patients = false;
+    }
+    if(tab == 'patients'){
+      this.consultations = false;
+      this.patients = true;
+    }
   }
 }
