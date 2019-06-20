@@ -17,9 +17,11 @@ export class AppComponent {
   setDiv = function(tab: string){
     if(tab == 'consultations'){
       this.consultations = true;
+      document.getElementById('consultations').setAttribute("class", "current_page_item");
       this.patients = false;
     }
     if(tab == 'patients'){
+      document.getElementById('patients').setAttribute("class", "current_page_item");
       this.consultations = false;
       this.patients = true;
     }

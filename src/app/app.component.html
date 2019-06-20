@@ -21,14 +21,14 @@
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#patients" (click)='setDiv("patients")' accesskey="1"
+					<li><a id="patients" href="#patients" (click)='setDiv("patients")' accesskey="1"
 							title="">Patients</a></li>
-					<li><a href="#consultations" (click)='setDiv("consultations")' accesskey="2"
+					<li><a id="consultations" href="#consultations" (click)='setDiv("consultations")' accesskey="2"
 							title="">Consultations</a></li>
 				</ul>
 			</div>
 		</div>
-		<div id="patients" *ngIf="patients" class="utilities">
+		<div *ngIf="patients" class="utilities">
 			<div id="welcome">
 				<div class="container">
 					<h1>HTML5 Editable Table</h1>
@@ -85,7 +85,7 @@
 				<span>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</span>
 			</div>
 		</div>
-		<div id="consultations" *ngIf="consultations" class="utilities">
+		<div *ngIf="consultations" class="utilities">
 			<div>
 				<div class="title">
 					<h2>consultations done</h2>
