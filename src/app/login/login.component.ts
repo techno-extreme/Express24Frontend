@@ -12,4 +12,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  loginClicked = function(){
+    console.log("app.component.html")
+    location.href = "app.component.html"
+  }
 }
