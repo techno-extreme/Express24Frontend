@@ -1,0 +1,82 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <ng-container *ngFor="let k = index; let heading of headings">
+        <th *ngIf="!small && heading.visible" scope="col">
+          {{heading.value}}
+        </th>
+        <th *ngIf="small && k<4 && heading.visible" scope="col">
+          {{heading.value}}
+        </th>
+      </ng-container>
+      <th *ngIf="showEdit" scope="col"></th>
+      <!-- <th *ngIf="showDelete" scope="col"></th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i = index; let info of pagedItems">
+      <th scope="row">{{i+1}}</th>
+      <ng-container *ngFor="let j = index; let heading of headings">
+        <td *ngIf="!small && heading.visible">
+          <div *ngIf="heading.type=='image'">
+            <img style="width: 5em" src={{info[heading.key]}} />
+          </div>
+          <div *ngIf="heading.type ==='text' || heading.type ==='textarea' || heading.type ==='number'">
+            {{info[heading.key]}}</div>
+            <div *ngIf="heading.type ==='date'">
+                {{info[heading.key] | date: 'dd/MM/yyyy'}}</div>
+          <div *ngIf="heading.type ==='select'">
+            <div *ngFor="let option of heading.source">
+              <div *ngIf="option.id===info[heading.key]">
+                {{option[heading.sourceName]}}
+              </div>
+            </div>
+          </div>
+          <div *ngIf="heading.type ==='checkbox'">
+            <span *ngIf="!info[heading.key]" class="danger-color fas fa-times"></span>
+            <span *ngIf="info[heading.key]" class="primary-color fas fa-check"></span>
+          </div>
+        </td>
+        <td *ngIf="small && j<4 && heading.visible">
+          <div *ngIf="heading.type=='image'">
+            <img style="width: 5em" src={{info[heading.key]}} />
+          </div>
+          <div *ngIf="heading.type ==='text' || heading.type ==='textarea' || heading.type ==='number'">
+            {{info[heading.key]}}</div>
+            <div *ngIf="heading.type ==='date'">
+                {{info[heading.key] | date: 'dd/MM/yyyy'}}</div>
+          <div *ngIf="heading.type ==='select'">
+            <div *ngFor="let option of heading.source">
+              <div *ngIf="option.id===info[heading.key]">
+                {{option[heading.sourceName]}}
+              </div>
+            </div>
+          </div>
+          <div *ngIf="heading.type ==='checkbox'">
+              <span *ngIf="!info[heading.key]" class="danger-color fas fa-times"></span>
+              <span *ngIf="info[heading.key]" class="primary-color fas fa-check"></span>
+            </div>
+        </td>
+      </ng-container>
+      <td *ngIf="showEdit"><a><span (click)="edit(info)" class="edit-color fas fa-2x fa-edit"></span></a></td>
+      <!-- <td *ngIf="showDelete"><a><span (click)="delete(info)" class="edit-color fas fa-2x fa-trash-alt"></span></a></td> -->
+    </tr>
+  </tbody>
+</table>
+<!-- pager -->
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <li [class.disabled]="pager.currentPage === 1">
+    <a (click)="setPage(1)">
+      << First</a> </li> <li [class.disabled]="pager.currentPage === 1">
+        <a (click)="setPage(pager.currentPage - 1)">
+          < Previous</a> </li> <li *ngFor="let page of pager.pages" [class.active]="pager.currentPage === page">
+            <a (click)="setPage(page)">{{page}}</a>
+  </li>
+  <li [class.disabled]="pager.currentPage === pager.totalPages">
+    <a (click)="setPage(pager.currentPage + 1)">Next ></a>
+  </li>
+  <li [class.disabled]="pager.currentPage === pager.totalPages">
+    <a (click)="setPage(pager.totalPages)">Last >></a>
+  </li>
+</ul>

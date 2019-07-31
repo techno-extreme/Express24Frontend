@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: 'dashboard/dashboard.component.html',
+  styleUrls: ['dashboard/dashboard.component.scss']
 })
 export class AppComponent {
   title = 'Express24FrontEnd';
